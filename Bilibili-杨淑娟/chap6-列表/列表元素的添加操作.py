@@ -15,11 +15,13 @@ lst2 = ['hello', 'word']
 lst.extend(lst2)  # 在列表的末尾拓展，把lst2中的每一个数据分别添加到lst的末尾
 print(lst)
 
+
+print('{:-^48}'.format('利用insert添加一个元素'))
 # 在任意位置上添加一个元素
 lst.insert(1, 100)
 print(lst)
 
 # 在任意的位置添加N个元素
 lst3 = [True, False, 'hello']
-lst[1:] = lst3
+lst[1:] = lst3  #把索引值 <= 1 的元素切掉，用新的内容来替换
 print(lst)
