@@ -10,7 +10,7 @@ print('http:\\\\www.baidu.com')  # 打印字符'\'需要使用转义字符'\\'
 print('老师说：\'大家好\'')  # 打印'''(单引号),需要使用转义字符''\'
 
 # 原字符：不希望字符串中的转义字符起作用，就使用原字符，就是在字符串之前加上r，或者R
-print(r'hello\nword')
+print(r'hello\n word')
 # 注意事项，最后一个字符不能是 单个反斜杠
-# print(r'hello\nword\')
-print(r'hello\nword\\')
+# print(r' hello\n word\')
+print(r'hello\n word\\')

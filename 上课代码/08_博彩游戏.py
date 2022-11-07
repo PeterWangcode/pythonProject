@@ -1,34 +1,32 @@
 import random
 
-principal = 100  # 本金100元
+bj = 100  # 本金
 
-while principal > 0:
-    num = random.randint(3, 18)  # 生成大小
-    if 3 <= num <= 9:
-        num = '小'
-    elif 9 < num < 19:
-        num = '大'
+# 外层循环控制游戏运行和退出
+while True:
 
-    while True:  # 玩家选择‘大’或‘小’
-        print('请选择大小：\n 1) 3~9为小\n 2) 10~18为大')
-        choose = int(input('我选择：'))
-        if 3 <= choose <= 18:
-            break
+    # 控制输入
+    while True:
+        xz = float(input("请下注："))
+        p = input("请玩家押大小，请输入大或小：")
+        if xz > bj and p not in ("大", "小"):
+            continue
         else:
-            print('输入错误值！！！')
+            break
 
-    if 3 <= choose <= 9:
-        choose = '小'
-    elif 9 < choose < 19:
-        choose = '大'
+    # 利用生成的数字来控制大小
+    num = random.randint(3, 18)
 
-    # 审判
-    if choose == num:
-        print('玩家获胜！！！')
-        principal += 10
-    elif choose != num:
-        print('玩家失败！！！')
-        principal -= 10
-    print(principal)
+    # 判断胜负
+    if (3 <= num <= 9 and p == "小") or (10 <= num <= 18 and p == "大"):
+        print("恭喜你，押中！")
+        bj = bj + xz
+    else:
+        print("很遗憾，未押中！")
+        bj = bj - xz
 
-    # 游戏退出机制
+    # 退出机制
+    flag = input("是否继续游戏，结束按0，继续按任意键：")
+    if flag == "0":
+        print("游戏结束，您的本金为：", bj)
+        break
